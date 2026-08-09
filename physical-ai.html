@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Physical AI — Research — AiR Lab</title>
+<link rel="icon" type="image/png" href="figures/logo/favicon.png" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="research">
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="figures/logo/logo_v3.png" alt="AiR Lab logo" class="brand-logo" />
+      <span class="brand-sub">Dongguk University</span>
+    </a>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="index.html" data-page="home">Home</a></li>
+        <li><a href="members.html" data-page="members">Members</a></li>
+        <li><a href="research.html" data-page="research">Research</a></li>
+        <li><a href="projects.html" data-page="projects">Projects</a></li>
+        <li><a href="publication.html" data-page="publication">Publication</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <a href="research.html" class="section-link">← Back to Research</a>
+    <div class="research-detail-head" style="margin-top: var(--space-3);">
+      <span class="big-num">01</span>
+      <div>
+        <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin: 0 0 8px; letter-spacing:-0.02em;">Physical AI</h1>
+        <p class="desc" style="margin:0;">
+          We build intelligence systems that let robots understand and predict how the physical world responds to
+          their actions, and act autonomously on that understanding — combining world models with
+          language-grounded planning.
+        </p>
+      </div>
+    </div>
+    <img class="topic-hero-img" src="figures/research/1.PhysicalAI.png" alt="Physical AI: robot arm and end-effector detection" />
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="topic-block">
+      <h3>VLA &amp; Robot World Model</h3>
+      <ul class="desc-list">
+        <li><strong>World-model construction for physical prediction:</strong> learns from a robot's sensor data to build a neural world model that simulates, in real time, how objects' physical properties and interactions will evolve into future states.</li>
+        <li><strong>VLA-based autonomous action control:</strong> fuses natural-language commands with the world model's predicted context in an end-to-end controller that directly derives optimal robot actions in complex, dynamic environments.</li>
+      </ul>
+      <p class="desc">Vision-Language-Action (VLA) and World-Model-based technology for autonomous physical-intelligence robot control.</p>
+      <a class="watch-link" href="https://youtu.be/RD8qaXDuF6k" target="_blank" rel="noopener noreferrer">▶ Watch demo</a>
+      <figure class="research-figure">
+        <img src="figures/research/slide02_1.png" alt="Robot arm and end-effector detection, and multi-view video generation from the world model" />
+        <figcaption>Object/end-effector detection and multi-view future-state generation from the world model.</figcaption>
+      </figure>
+    </div>
+
+    <div class="topic-block">
+      <h3>3D VLP (Vision-Language-Planning)</h3>
+      <ul class="desc-list">
+        <li><strong>Semantic 3D space construction:</strong> fuses visual information from heterogeneous multi-robot teams to build a 3D-LLM map that perceives the environment in real time.</li>
+        <li><strong>Intelligent unified control:</strong> interprets natural-language commands within spatial context and automatically generates and controls optimized collaborative actions across heterogeneous multi-robot teams.</li>
+      </ul>
+      <p class="desc">3D Vision-Language-Planning (3D VLP) technology for natural-language-command-driven autonomous heterogeneous multi-robot operation.</p>
+      <figure class="research-figure">
+        <img src="figures/research/1-2.3DVLP.png" alt="3D-VLP roadmap: real-time 3D-LLM map update, multi-robot embodied planning, and Sim-to-Real validation" />
+        <figcaption>3D-VLP roadmap — real-time 3D-LLM map update, multi-robot embodied planning, and Sim-to-Real validation.</figcaption>
+      </figure>
+    </div>
+
+    <a href="research.html" class="back-to-top">← Back to Research</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>Contact</h3>
+        <p>Prof. Soohwan Song</p>
+        <p>Room #10108, New Engineering Building</p>
+        <p>College of AI Convergence, Dongguk University</p>
+        <p>Tel. 02-2260-3765</p>
+        <p><a class="email" href="mailto:songsh@dongguk.edu">songsh@dongguk.edu</a></p>
+      </div>
+      <div>
+        <img src="figures/logo/logo_v3.png" alt="AI & Robotics Lab (AiR Lab)" class="footer-logo" />
+        <p>Developing intelligence systems for mobile robots through 3D perception, path planning, and motion control.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AI &amp; Robotics Lab, Dongguk University. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Spatial AI — Research — AiR Lab</title>
+<link rel="icon" type="image/png" href="figures/logo/favicon.png" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="research">
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="figures/logo/logo_v3.png" alt="AiR Lab logo" class="brand-logo" />
+      <span class="brand-sub">Dongguk University</span>
+    </a>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="index.html" data-page="home">Home</a></li>
+        <li><a href="members.html" data-page="members">Members</a></li>
+        <li><a href="research.html" data-page="research">Research</a></li>
+        <li><a href="projects.html" data-page="projects">Projects</a></li>
+        <li><a href="publication.html" data-page="publication">Publication</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <a href="research.html" class="section-link">← Back to Research</a>
+    <div class="research-detail-head" style="margin-top: var(--space-3);">
+      <span class="big-num">02</span>
+      <div>
+        <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin: 0 0 8px; letter-spacing:-0.02em;">Spatial AI</h1>
+        <p class="desc" style="margin:0;">
+          We work on visual localization, 3D reconstruction, scanning, and scene understanding, enabling robots
+          to build and continually update accurate 3D representations of their surroundings.
+        </p>
+      </div>
+    </div>
+    <img class="topic-hero-img" src="figures/research/2.SpatialAI.png" alt="Spatial AI: real-time high-precision 3D mapping results" />
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="topic-block">
+      <h3>Visual SLAM</h3>
+      <ul class="desc-list">
+        <li><strong>Localization:</strong> robustly extracts dense correspondences under extreme conditions — lighting change, repetitive patterns, textureless regions — for precise camera pose estimation.</li>
+        <li><strong>Mapping:</strong> real-time, high-precision 3D reconstruction via online multi-view stereo.</li>
+      </ul>
+      <span class="topic-highlight">2 top-tier AI conference papers (AAAI-23, CVPR-24) · 1 top journal, IEEE TIP (top 2% JCR)</span>
+      <p class="desc">Image-based real-time, high-precision camera localization and 3D mapping technology.</p>
+      <ul class="related-pubs">
+        <li>TopicFM: Robust and Interpretable Topic-Assisted Feature Matching — AAAI 2023</li>
+        <li>Learning to Produce Semi-Dense Correspondences for Visual Localization — CVPR 2024</li>
+        <li>TopicFM+: Boosting Accuracy and Efficiency of Topic-Assisted Feature Matching — IEEE TIP, 2024</li>
+      </ul>
+      <figure class="research-figure">
+        <img src="figures/research/2-1.Visual SLAM.png" alt="Feature matching results in extreme environments" />
+      </figure>
+    </div>
+
+    <div class="topic-block">
+      <h3>MVS &amp; Neural Rendering</h3>
+      <ul class="desc-list">
+        <li><strong>Multi-view stereo (MVS):</strong> high-precision 3D reconstruction using a depth foundation model, ranking 6th on the Tanks and Temples benchmark.</li>
+        <li><strong>Online 3DGS reconstruction:</strong> generates and updates a 3D Gaussian map in real time for photorealistic, high-quality rendering.</li>
+        <li><strong>Large-scale urban reconstruction:</strong> rapidly reconstructs wide urban areas in 3D, using a video diffusion model to synthesize novel-view images and fill in data-sparse regions.</li>
+      </ul>
+      <span class="topic-highlight">3 top-tier conference papers (ICLR-22, IJCAI-25, CVPR-26) · 1 top journal, Pattern Recognition (top 8.8%) · 3 SCIE papers · 3 technology transfers</span>
+      <p class="desc">3D reconstruction technology based on multi-view stereo (MVS) and 3D Gaussian Splatting (3DGS).</p>
+      <ul class="related-pubs">
+        <li>Curvature-Guided Dynamic Scale Networks for Multi-View Stereo — ICLR 2022</li>
+        <li>Online 3D Gaussian Splatting Modeling with Novel View Selection — IJCAI 2025</li>
+        <li>PR-IQA: Partial-Reference Image Quality Assessment for Diffusion-Based Novel View Synthesis — CVPR 2026</li>
+        <li>Prior Depth-Based Multi-View Stereo Network for Online 3D Model Reconstruction — Pattern Recognition, 2023</li>
+      </ul>
+      <figure class="research-figure">
+        <img src="figures/research/2-2.MVS_Neural Rendering.png" alt="MVS and Neural Rendering results" />
+      </figure>
+    </div>
+
+    <div class="topic-block">
+      <h3>3D Scanning</h3>
+      <p class="desc">
+        Performs real-time 3D reconstruction from drone aerial imagery (online MVS), instantly identifies
+        weakly-reconstructed regions, and plans an optimal re-scanning path — enabling complete 3D scanning of
+        large-scale structures in a single flight.
+      </p>
+      <span class="topic-highlight">4 top-tier robotics conference papers (ICRA-17/18/20, IROS-26) · 1 top journal, IEEE T-RO (top 7.3%) · 4 SCIE papers</span>
+      <p class="desc">Optimal 3D scanning path-planning technology.</p>
+      <ul class="related-pubs">
+        <li>Active 3D Modeling via Online Multi-View Stereo — ICRA 2020</li>
+        <li>Online Coverage and Inspection Planning for 3D Modeling — Autonomous Robots, 2020</li>
+        <li>View Path Planning via Online Multi-View Stereo for 3D Modeling of Large-Scale Structures — IEEE T-RO, 2022</li>
+        <li>Online Explore-Then-Exploit UAV Scanning with Budgeted Return Re-Scanning — IROS 2026</li>
+      </ul>
+      <figure class="research-figure">
+        <img src="figures/research/2-3.3DScanning.png" alt="3D Scanning results" />
+      </figure>
+    </div>
+
+    <div class="topic-block">
+      <h3>3D Scene Graphs</h3>
+      <p class="desc">
+        We propose a feed-forward framework that combines LLM-generated spatial constraints with best-view
+        visual confidence to build verified 3D scene graphs consistent with the real environment — filtering
+        false-positive objects without costly iterative updates, and generating reliable subtask sequences
+        from verified objects only.
+      </p>
+      <p class="desc">Spatial-constraint-based 3D scene graph and task-planning technology.</p>
+      <figure class="research-figure">
+        <img src="figures/research/2-4.3DSceneGraphs.png" alt="3D Scene Graphs results" />
+      </figure>
+    </div>
+
+    <div class="topic-block">
+      <h3>Multi-Object Tracking</h3>
+      <p class="desc">On-going research.</p>
+      <figure class="research-figure">
+        <img src="figures/research/2-5.Multi-ObjectTracking.png" alt="Multi-Object Tracking results" />
+      </figure>
+    </div>
+
+    <a href="research.html" class="back-to-top">← Back to Research</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>Contact</h3>
+        <p>Prof. Soohwan Song</p>
+        <p>Room #10108, New Engineering Building</p>
+        <p>College of AI Convergence, Dongguk University</p>
+        <p>Tel. 02-2260-3765</p>
+        <p><a class="email" href="mailto:songsh@dongguk.edu">songsh@dongguk.edu</a></p>
+      </div>
+      <div>
+        <img src="figures/logo/logo_v3.png" alt="AI & Robotics Lab (AiR Lab)" class="footer-logo" />
+        <p>Developing intelligence systems for mobile robots through 3D perception, path planning, and motion control.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AI &amp; Robotics Lab, Dongguk University. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
