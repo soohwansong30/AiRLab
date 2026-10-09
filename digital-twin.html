@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="AiR Lab studies layered information models, Real-to-Sim robot and environment modeling, and interoperability validation for robot digital twins." />
 <title>Robot Digital Twin — Research — AiR Lab</title>
 <link rel="icon" type="image/png" href="figures/logo/favicon.png" />
 <link rel="stylesheet" href="css/style.css" />
@@ -36,42 +37,76 @@
     <div class="research-detail-head" style="margin-top: var(--space-3);">
       <span class="big-num">04</span>
       <div>
-        <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin: 0 0 8px; letter-spacing:-0.02em;">Robot Digital Twin</h1>
+        <h1 class="research-title">Robot Digital Twin</h1>
         <p class="desc" style="margin:0;">
-          We build standardized, automated pipelines that turn real robots and environments into accurate
-          digital-twin simulations.
+          We study how robots, environments, and control software can be represented in reusable simulation
+          models. Our work combines layered information models, Real-to-Sim environment construction, and
+          interoperability testing to support reproducible robot development and evaluation.
         </p>
       </div>
     </div>
-    <img class="topic-hero-img" src="figures/research/4.RobotDigitalTwin.png" alt="Robot Digital Twin: National Robot Test Field digital-twin environment" />
+    <img class="topic-hero-img" src="figures/research/4.RobotDigitalTwin.png" alt="Robot digital-twin environment developed for the National Robot Test Field" />
   </div>
 </section>
 
-<section class="section">
+<section class="section research-article">
   <div class="container">
 
-    <div class="topic-block">
-      <h3>Robot Digital Twin Generation</h3>
+    <nav class="topic-nav" aria-label="Research topics">
+      <a href="#information-models">Information Models</a>
+      <a href="#real-to-sim">Real-to-Sim Modeling</a>
+      <a href="#interoperability">Interoperability</a>
+    </nav>
+
+    <div class="topic-block" id="information-models">
+      <h2>Layered Information Models</h2>
+      <p class="topic-status">Published framework</p>
+      <p class="desc">Robot simulators describe scenes, robot structures, and control interfaces in different formats. Our layered information-model framework organizes these elements into a common structure for wheeled mobile robots, enabling simulation setups to be built for both Isaac Sim and Gazebo.</p>
       <ul class="desc-list">
-        <li><strong>Layered information-model framework:</strong> a digital-twin simulation standardization architecture that goes beyond single-sensor-driven models, emphasizing URDF-based structural specification.</li>
-        <li><strong>Automatic digital-twin environment construction:</strong> infers objects' joint information and physical properties from video data to automatically convert them into simulation environments in real time.</li>
+        <li><strong>World layer:</strong> Describes the environment and scene assets used to construct a simulation.</li>
+        <li><strong>Robot layer:</strong> Represents robot structure and configuration, including URDF descriptions and simulator-specific representations.</li>
+        <li><strong>Control layer:</strong> Describes configuration and interfaces that connect simulated robots to control, localization, and navigation software.</li>
       </ul>
-      <span class="topic-highlight">Applied to the National Robot Test Field digital-twin environment construction project</span>
-      <p class="desc">Real-to-Sim robot digital-twin model generation technology.</p>
+      <p class="desc">The published framework uses YAML, URDF, USD, and SDF artifacts with ROS 2 and Nav2. Navigation experiments in both simulators demonstrate how this structure supports reproducible operation across heterogeneous simulation platforms.</p>
+      <figure class="research-figure">
+        <img src="figures/research/slide16_2.png" alt="World, Robot, and Control layers feeding USD and SDF pipelines for Isaac Sim and Gazebo with ROS interfaces" />
+        <figcaption>World, Robot, and Control information is translated into simulator-specific assets and interfaces for Isaac Sim and Gazebo.</figcaption>
+      </figure>
+      <h3 class="related-heading">Selected Publications</h3>
       <ul class="related-pubs">
-        <li>A Comparative Study of Robot Simulator Information Models for Digital Twin Implementation — ICROS 2025</li>
-        <li>A Layered Information Model Framework for the Standardization of Digital Twin Simulation — JCROS, 2025</li>
+        <li><a href="https://doi.org/10.5302/J.ICROS.2025.25.0232" target="_blank" rel="noopener noreferrer">A Layered Information Model Framework for Standardizing Digital Twin Simulation</a> - Journal of Institute of Control, Robotics and Systems (JCROS), 2025</li>
+        <li><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12313514" target="_blank" rel="noopener noreferrer">Comparative Study of Information Models in Robot Simulators for Digital Twin</a> - ICROS, 2025</li>
       </ul>
-      <div class="research-figure-row">
-        <figure class="research-figure">
-          <img src="figures/research/slide16_2.png" alt="Layered information-model framework converting World, Robot, and Control layers into Isaac-Sim and Gazebo-Sim" />
-          <figcaption>Layered information-model framework for Isaac-Sim and Gazebo-Sim pipelines.</figcaption>
-        </figure>
-        <figure class="research-figure">
-          <img src="figures/research/slide16_1.png" alt="National Robot Test Field digital-twin environment construction" />
-          <figcaption>National Robot Test Field digital-twin environment construction.</figcaption>
-        </figure>
-      </div>
+    </div>
+
+    <div class="topic-block" id="real-to-sim">
+      <h2>Real-to-Sim Robot &amp; Environment Modeling</h2>
+      <p class="topic-status">Applied work and ongoing modeling research</p>
+      <p class="desc">A usable robot simulation must capture more than visual appearance. Scene geometry, robot structure, collision representations, and physical parameters must be organized so that the environment can support the intended robot task.</p>
+      <p class="desc">Our applied work includes digital-twin environment construction for the National Robot Test Field, bringing physical facilities and robot assets into a simulation setting.</p>
+      <ul class="desc-list">
+        <li><strong>Environment construction:</strong> Organize real-world layout and geometry into simulator-ready scene assets.</li>
+        <li><strong>Robot integration:</strong> Combine robot descriptions, simulated sensors, and control interfaces within the environment.</li>
+        <li><strong>Automation research:</strong> Investigate how visual observations can reduce manual modeling effort, including estimating articulated structure and relevant physical parameters.</li>
+      </ul>
+      <p class="desc">Our next research direction is to connect visual model generation with structural and physical validation, so that automatically generated assets can be evaluated for robot simulation tasks.</p>
+      <figure class="research-figure">
+        <img src="figures/research/slide16_1.png" alt="Physical mobile robots and conveyors alongside simulated robot facilities and mapping views" />
+        <figcaption>Physical robot facilities and their simulation representations used in National Robot Test Field digital-twin work.</figcaption>
+      </figure>
+    </div>
+
+    <div class="topic-block" id="interoperability">
+      <h2>Interoperability &amp; Simulation Validation</h2>
+      <p class="topic-status">Ongoing applied research, 2026</p>
+      <p class="desc">A shared information model supports simulator integration, while execution tests show whether the connected modules behave as intended. Our current conformity-testing project examines module execution through defined interfaces, consistency of twin and simulator states, and conformance to specified scenarios.</p>
+      <ul class="desc-list">
+        <li><strong>Module and interface compatibility:</strong> Check that robot, environment, and control modules can be connected and executed together.</li>
+        <li><strong>Twin-simulator synchronization:</strong> Examine consistency between represented states, simulator updates, and the information exchanged by modules.</li>
+        <li><strong>Scenario conformance:</strong> Evaluate whether an integrated system follows the intended test scenario and provides results that can be inspected and repeated.</li>
+      </ul>
+      <p class="desc">This work builds on earlier robot-navigation information models and interoperability demonstrations. The ongoing project focuses on a test software platform for standard execution, interoperability, synchronization, and scenario conformance.</p>
+      <p class="desc"><a href="projects.html">Related projects: robot digital-twin integration and conformity testing</a></p>
     </div>
 
     <a href="research.html" class="back-to-top">← Back to Research</a>

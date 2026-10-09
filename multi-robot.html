@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="AiR Lab studies robot fleet coordination, lifelong multi-agent pathfinding, online pickup and delivery, and language-guided multi-robot planning with localized recovery." />
 <title>Multi-Robot System — Research — AiR Lab</title>
 <link rel="icon" type="image/png" href="figures/logo/favicon.png" />
 <link rel="stylesheet" href="css/style.css" />
@@ -36,80 +37,111 @@
     <div class="research-detail-head" style="margin-top: var(--space-3);">
       <span class="big-num">03</span>
       <div>
-        <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin: 0 0 8px; letter-spacing:-0.02em;">Multi-Robot System</h1>
+        <h1 class="research-title">Multi-Robot System</h1>
         <p class="desc" style="margin:0;">
-          We develop fleet management, task allocation, and multi-agent pathfinding technologies that coordinate
-          large teams of robots efficiently and reliably in shared, dynamic environments.
+          We study how multiple robots share space, divide work, and adapt their plans as new tasks and execution
+          failures arise. Our research connects fleet coordination, multi-agent pathfinding, online task allocation,
+          and language-guided planning for collaborative robot systems.
         </p>
       </div>
     </div>
-    <img class="topic-hero-img" src="figures/research/3.Multi-RobotSystem.png" alt="Multi-Robot System: Robot Fleet Management System overview" />
+    <img class="topic-hero-img" src="figures/research/3.Multi-RobotSystem.png" alt="Overview of multi-robot coordination and robot fleet management research" />
   </div>
 </section>
 
-<section class="section">
+<section class="section research-article">
   <div class="container">
 
-    <div class="topic-block">
-      <h3>Robot Fleet Management System (FMS)</h3>
+    <nav class="topic-nav" aria-label="Research topics">
+      <a href="#fleet-coordination">Fleet Coordination</a>
+      <a href="#decentralized-mapf">Decentralized MAPF</a>
+      <a href="#pickup-delivery">Pickup and Delivery</a>
+      <a href="#language-planning">Language-Guided Planning</a>
+    </nav>
+
+    <div class="topic-block" id="fleet-coordination">
+      <h2>Fleet Coordination and Lifelong Pathfinding</h2>
+      <p class="topic-status">Published research and system development</p>
+      <p class="desc">Logistics fleets must repeatedly plan routes as robots receive new destinations. Narrow aisles make this difficult: robots cannot easily pass one another, and short planning horizons can overlook conflicts farther along a corridor.</p>
       <ul class="desc-list">
-        <li><strong>Real-time traffic control:</strong> real-time optimal path planning and traffic control that prevents collisions and deadlocks among multiple AMRs on mixed human-robot smart-manufacturing floors.</li>
-        <li><strong>Large-scale fleet operation:</strong> combines decentralized control (flexibility) with centralized control (efficiency) to operate fleets of 100+ robots stably and without delay.</li>
+        <li><strong>Topological maps:</strong> represent the operating environment as connected waypoints and lanes, with corridor structure incorporated into path planning.</li>
+        <li><strong>Anytime planning:</strong> find an initial route set quickly, then improve congested portions while computation time remains.</li>
+        <li><strong>Corridor-aware conflict resolution:</strong> use Corridor-CBS, a conflict-based search method, to reduce unnecessary search when agents compete for narrow passages.</li>
+        <li><strong>Fleet integration:</strong> connect route coordination with task execution and robot-state updates in a fleet management system (FMS).</li>
       </ul>
-      <span class="topic-highlight">2 SCIE journal papers · 5 technology transfers</span>
-      <p class="desc">A semi-centralized robot fleet management system (FMS) for logistics automation.</p>
+      <p class="desc">The 2023 study evaluates lifelong pathfinding in warehouse and railway scenarios, reporting throughput and planning success under the tested conditions. Current system work develops fleet-management interfaces and distributed coordination for logistics applications.</p>
+      <h3 class="related-heading">Selected Publication</h3>
       <ul class="related-pubs">
-        <li>Anytime Lifelong Multi-Agent Pathfinding in Topological Maps — IEEE Access, 2023</li>
-        <li>Efficient TSP-Based Task Group Allocation for Multi-Task Multi-Agent Pickup and Delivery — IEEE Access, 2025</li>
+        <li><a href="https://doi.org/10.1109/ACCESS.2023.3249471" target="_blank" rel="noopener noreferrer">Anytime Lifelong Multi-Agent Pathfinding in Topological Maps</a> &middot; IEEE Access, 2023</li>
       </ul>
       <a class="watch-link" href="https://youtu.be/ydF9hDo18O0" target="_blank" rel="noopener noreferrer">▶ Watch demo</a>
       <figure class="research-figure">
-        <img src="figures/research/3-1.RobotFleetManagementSystem.png" alt="Robot Fleet Management System results" />
+        <img src="figures/research/3-1.RobotFleetManagementSystem.png" alt="Topological warehouse map with robot routes and diagrams of opposing traffic and dead-end corridor conflicts" />
+        <figcaption>Lifelong pathfinding on a topological warehouse map, with examples of opposing traffic and conflicts in dead-end corridors.</figcaption>
       </figure>
     </div>
 
-    <div class="topic-block">
-      <h3>Decentralized MAPF</h3>
+    <div class="topic-block" id="decentralized-mapf">
+      <h2>Decentralized Pathfinding with Shared Guidance</h2>
+      <p class="topic-status">Ongoing research</p>
+      <p class="desc">A robot acting only on nearby observations may avoid immediate conflicts while moving into congestion elsewhere in the fleet. We investigate how lightweight shared information can improve local decisions without requiring a centralized planner to choose every action.</p>
       <ul class="desc-list">
-        <li>Intermittently provides sector-based global information to a decentralized, learned MAPF policy, approaching the performance of centralized planners.</li>
-        <li>Combines imitation-learning-based local planning with intermittent sector-congestion guidance.</li>
+        <li><strong>Learned local decisions:</strong> train decentralized navigation policies through imitation learning for multi-agent pathfinding (MAPF).</li>
+        <li><strong>Sector-level guidance:</strong> periodically share coarse information about congestion across regions of the environment.</li>
+        <li><strong>Selective coordination:</strong> study when shared guidance is useful and how frequently it should be updated.</li>
+        <li><strong>Evaluation focus:</strong> compare throughput, task completion, communication requirements, and planning cost across fleet sizes and congestion levels.</li>
       </ul>
-      <p class="desc">An imitation-learning-based decentralized multi-agent pathfinding (MAPF) algorithm.</p>
-      <figure class="research-figure">
-        <video src="figures/research/3-2.DecentralizedMAPF.mp4" controls muted loop playsinline></video>
+      <p class="desc">This direction explores the balance between local autonomy and fleet-wide coordination. Its objective is to reduce the information and computation needed for effective multi-robot navigation; comparative performance remains an evaluation target.</p>
+      <figure class="research-figure" aria-label="Decentralized multi-agent navigation simulation">
+        <video src="figures/research/3-2.DecentralizedMAPF.mp4" controls muted loop playsinline preload="metadata" aria-label="Simulation of decentralized multi-agent pathfinding"></video>
+        <figcaption>Simulation of decentralized multi-agent navigation.</figcaption>
       </figure>
     </div>
 
-    <div class="topic-block">
-      <h3>Multi-Agent Pickup and Delivery</h3>
-      <p class="desc">A TSP-based optimal task-allocation algorithm for multi-agent pickup and delivery.</p>
+    <div class="topic-block" id="pickup-delivery">
+      <h2>Online Multi-Task Pickup and Delivery</h2>
+      <p class="topic-status">Published research</p>
+      <p class="desc">In order-picking scenarios, a robot may collect items for several orders before returning to a delivery location. Efficient allocation must account for payload limits and the complete sequence of pickup locations, rather than assigning each order independently.</p>
       <ul class="desc-list">
-        <li><strong>Task group allocation:</strong> efficiently assigns real-time incoming orders by considering each robot's route and expected completion time.</li>
-        <li><strong>Task grouping:</strong> groups tasks by each robot's capacity and expected cost before assignment, for efficient throughput.</li>
-        <li><strong>Task group updates:</strong> continuously compares unassigned and pending tasks to keep task groups efficient at all times.</li>
+        <li><strong>Capacity-aware task groups:</strong> combine orders that a robot can complete within its carrying capacity.</li>
+        <li><strong>Route-aware grouping:</strong> evaluate candidate additions by their extra travel distance using traveling-salesperson-problem (TSP) reasoning.</li>
+        <li><strong>Online updates:</strong> revise queued task groups as new orders arrive.</li>
+        <li><strong>Parallel processing:</strong> maintain task groups while robots move, with a separate pathfinding module resolving route conflicts.</li>
       </ul>
-      <span class="topic-highlight">1 SCIE journal paper</span>
+      <p class="desc">The 2025 study evaluates service time, makespan, and computation cost in Kiva-style warehouse and sorting-center simulations. Its efficient variant limits candidate insertion calculations to newly added targets, reducing repeated route computation.</p>
+      <h3 class="related-heading">Selected Publication</h3>
       <ul class="related-pubs">
-        <li>TSP-Based Task Allocation for Multi-Task Multi-Agent Pickup and Delivery — ICROS 2024</li>
-        <li>Efficient TSP-Based Task Group Allocation for Multi-Task Multi-Agent Pickup and Delivery — IEEE Access, 2025</li>
+        <li><a href="https://doi.org/10.1109/ACCESS.2025.3634800" target="_blank" rel="noopener noreferrer">Efficient TSP-Based Task Group Allocation for Multi-Task Multi-Agent Pickup and Delivery</a> &middot; IEEE Access, 2025</li>
       </ul>
       <figure class="research-figure">
-        <img src="figures/research/3-3.Multi-AgentPickupandDelivery.png" alt="Multi-Agent Pickup and Delivery results" />
+        <img src="figures/research/3-3.Multi-AgentPickupandDelivery.png" alt="Task-group generation and update workflow beside warehouse and sorting-center simulation views" />
+        <figcaption>Task-group generation and updates, alongside warehouse and sorting-center simulation scenarios.</figcaption>
       </figure>
     </div>
 
-    <div class="topic-block">
-      <h3>Multi-Agentic AI</h3>
+    <div class="topic-block" id="language-planning">
+      <h2>Language-Guided Planning and Localized Recovery</h2>
+      <p class="topic-status">Accepted to Findings of EMNLP 2026</p>
+      <p class="desc">Long-horizon instructions can require many robots and interdependent actions. As plans grow, a single planner must track increasing amounts of state, and one failed action may interrupt work that does not depend on it.</p>
+      <p class="desc">HiP-LR organizes planning into a hierarchy with a central large language model (LLM) agent and local agents assigned to dependency-isolated groups.</p>
       <ul class="desc-list">
-        <li><strong>Hierarchical agent collaboration:</strong> a central agent handles global planning while per-group local agents own detailed scheduling and re-planning, reducing LLM context load and mitigating hallucination.</li>
-        <li><strong>Localized failure recovery:</strong> on execution failure, only the affected group pauses to re-plan while the rest of the fleet keeps executing in parallel, uninterrupted.</li>
-        <li><strong>Failure-injection benchmark:</strong> introduces RECAP-THOR, a new dataset for controlled evaluation of re-planning capability.</li>
+        <li><strong>Hierarchical planning:</strong> separate global task organization from detailed planning within each group.</li>
+        <li><strong>Explicit dependencies:</strong> use Planning Domain Definition Language (PDDL) representations to identify relationships between actions.</li>
+        <li><strong>Localized recovery:</strong> replan the affected group after a failure while independent groups can continue executing.</li>
+        <li><strong>Failure evaluation:</strong> assess task completion and replanning on MAP-THOR and the failure-injection benchmark RECAP-THOR.</li>
       </ul>
-      <p class="desc">A hierarchical LLM-agent-based task planning and scheduling system for long-horizon multi-robot missions.</p>
-      <div class="video-row">
-        <video src="figures/research/3-4.Multi-AgenticAI-1.mp4" controls muted loop playsinline></video>
-        <video src="figures/research/3-4.Multi-AgenticAI-2.mp4" controls muted loop playsinline></video>
-      </div>
+      <p class="desc">This work studies recovery during simulated multi-robot tasks, including failures caused by unavailable manipulation actions and changed scene conditions.</p>
+      <h3 class="related-heading">Selected Publication</h3>
+      <ul class="related-pubs">
+        <li><a href="https://cs.dongguk.edu/article/webz/detail/1474" target="_blank" rel="noopener noreferrer">HiP-LR: Hierarchical Planning with Localized Failure Recovery for Long-Horizon Multi-Robot Tasks</a> &middot; Findings of EMNLP 2026, accepted (acceptance announcement)</li>
+      </ul>
+      <figure class="research-figure" aria-label="Simulated multi-robot task execution and failure recovery">
+        <div class="video-row">
+          <video src="figures/research/3-4.Multi-AgenticAI-1.mp4" controls muted loop playsinline preload="metadata" aria-label="First simulation example of multi-robot task execution and recovery"></video>
+          <video src="figures/research/3-4.Multi-AgenticAI-2.mp4" controls muted loop playsinline preload="metadata" aria-label="Second simulation example of multi-robot task execution and recovery"></video>
+        </div>
+        <figcaption>Simulated multi-robot task execution and recovery after a localized execution failure.</figcaption>
+      </figure>
     </div>
 
     <a href="research.html" class="back-to-top">← Back to Research</a>

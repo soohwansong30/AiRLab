@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="AiR Lab research in visual localization, multi-view stereo, neural rendering, active 3D scanning, scene graphs, and multi-object tracking." />
 <title>Spatial AI — Research — AiR Lab</title>
 <link rel="icon" type="image/png" href="figures/logo/favicon.png" />
 <link rel="stylesheet" href="css/style.css" />
@@ -36,97 +37,174 @@
     <div class="research-detail-head" style="margin-top: var(--space-3);">
       <span class="big-num">02</span>
       <div>
-        <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin: 0 0 8px; letter-spacing:-0.02em;">Spatial AI</h1>
+        <h1 class="research-title">Spatial AI</h1>
         <p class="desc" style="margin:0;">
-          We work on visual localization, 3D reconstruction, scanning, and scene understanding, enabling robots
-          to build and continually update accurate 3D representations of their surroundings.
+          We study how robots estimate their position, reconstruct their surroundings, and maintain spatial
+          information that supports action. Our research connects visual localization and 3D reconstruction
+          with active sensing, object-level scene understanding, and perception of dynamic environments.
         </p>
       </div>
     </div>
-    <img class="topic-hero-img" src="figures/research/2.SpatialAI.png" alt="Spatial AI: real-time high-precision 3D mapping results" />
+    <img class="topic-hero-img" src="figures/research/2.SpatialAI.png" alt="Hierarchical scene graph linking a reconstructed environment, objects, and spatial relationships for language queries" />
   </div>
 </section>
 
-<section class="section">
+<section class="section research-article">
   <div class="container">
 
-    <div class="topic-block">
-      <h3>Visual SLAM</h3>
-      <ul class="desc-list">
-        <li><strong>Localization:</strong> robustly extracts dense correspondences under extreme conditions — lighting change, repetitive patterns, textureless regions — for precise camera pose estimation.</li>
-        <li><strong>Mapping:</strong> real-time, high-precision 3D reconstruction via online multi-view stereo.</li>
-      </ul>
-      <span class="topic-highlight">2 top-tier AI conference papers (AAAI-23, CVPR-24) · 1 top journal, IEEE TIP (top 2% JCR)</span>
-      <p class="desc">Image-based real-time, high-precision camera localization and 3D mapping technology.</p>
-      <ul class="related-pubs">
-        <li>TopicFM: Robust and Interpretable Topic-Assisted Feature Matching — AAAI 2023</li>
-        <li>Learning to Produce Semi-Dense Correspondences for Visual Localization — CVPR 2024</li>
-        <li>TopicFM+: Boosting Accuracy and Efficiency of Topic-Assisted Feature Matching — IEEE TIP, 2024</li>
-      </ul>
-      <figure class="research-figure">
-        <img src="figures/research/2-1.Visual SLAM.png" alt="Feature matching results in extreme environments" />
-      </figure>
-    </div>
+    <nav class="topic-nav" aria-label="Research topics">
+      <a href="#localization">Localization</a>
+      <a href="#reconstruction">Reconstruction</a>
+      <a href="#scanning">3D Scanning</a>
+      <a href="#scene-graphs">Scene Graphs</a>
+      <a href="#tracking">Tracking</a>
+    </nav>
 
-    <div class="topic-block">
-      <h3>MVS &amp; Neural Rendering</h3>
-      <ul class="desc-list">
-        <li><strong>Multi-view stereo (MVS):</strong> high-precision 3D reconstruction using a depth foundation model, ranking 6th on the Tanks and Temples benchmark.</li>
-        <li><strong>Online 3DGS reconstruction:</strong> generates and updates a 3D Gaussian map in real time for photorealistic, high-quality rendering.</li>
-        <li><strong>Large-scale urban reconstruction:</strong> rapidly reconstructs wide urban areas in 3D, using a video diffusion model to synthesize novel-view images and fill in data-sparse regions.</li>
-      </ul>
-      <span class="topic-highlight">3 top-tier conference papers (ICLR-22, IJCAI-25, CVPR-26) · 1 top journal, Pattern Recognition (top 8.8%) · 3 SCIE papers · 3 technology transfers</span>
-      <p class="desc">3D reconstruction technology based on multi-view stereo (MVS) and 3D Gaussian Splatting (3DGS).</p>
-      <ul class="related-pubs">
-        <li>Curvature-Guided Dynamic Scale Networks for Multi-View Stereo — ICLR 2022</li>
-        <li>Online 3D Gaussian Splatting Modeling with Novel View Selection — IJCAI 2025</li>
-        <li>PR-IQA: Partial-Reference Image Quality Assessment for Diffusion-Based Novel View Synthesis — CVPR 2026</li>
-        <li>Prior Depth-Based Multi-View Stereo Network for Online 3D Model Reconstruction — Pattern Recognition, 2023</li>
-      </ul>
-      <figure class="research-figure">
-        <img src="figures/research/2-2.MVS_Neural Rendering.png" alt="MVS and Neural Rendering results" />
-      </figure>
-    </div>
-
-    <div class="topic-block">
-      <h3>3D Scanning</h3>
+    <div class="topic-block" id="localization">
+      <h2>Visual Localization &amp; SLAM</h2>
+      <p class="topic-status">Published research</p>
       <p class="desc">
-        Performs real-time 3D reconstruction from drone aerial imagery (online MVS), instantly identifies
-        weakly-reconstructed regions, and plans an optimal re-scanning path — enabling complete 3D scanning of
-        large-scale structures in a single flight.
+        Reliable spatial perception starts with establishing correspondences across images and connecting
+        observations to a 3D map. We develop feature-matching and visual-localization methods for scenes
+        affected by changes in illumination, viewpoint, weather, and appearance.
       </p>
-      <span class="topic-highlight">4 top-tier robotics conference papers (ICRA-17/18/20, IROS-26) · 1 top journal, IEEE T-RO (top 7.3%) · 4 SCIE papers</span>
-      <p class="desc">Optimal 3D scanning path-planning technology.</p>
+      <p class="desc">
+        TopicFM and TopicFM+ use latent topic representations to guide matching between related image regions.
+        Our semi-dense localization method extends 2D-3D correspondences beyond predefined map points by
+        inferring scene coordinates from geometric and visual cues. These methods provide components for
+        camera pose estimation and image-based mapping.
+      </p>
+      <ul class="desc-list">
+        <li><strong>Context-aware matching:</strong> use shared scene context to distinguish image features in visually difficult regions.</li>
+        <li><strong>Semi-dense correspondences:</strong> infer additional scene coordinates to make better use of image matches.</li>
+        <li><strong>Map-based localization:</strong> estimate camera pose when reference observations or 3D map points are sparse or noisy.</li>
+      </ul>
+      <h3 class="related-heading">Selected Publications</h3>
       <ul class="related-pubs">
-        <li>Active 3D Modeling via Online Multi-View Stereo — ICRA 2020</li>
-        <li>Online Coverage and Inspection Planning for 3D Modeling — Autonomous Robots, 2020</li>
-        <li>View Path Planning via Online Multi-View Stereo for 3D Modeling of Large-Scale Structures — IEEE T-RO, 2022</li>
-        <li>Online Explore-Then-Exploit UAV Scanning with Budgeted Return Re-Scanning — IROS 2026</li>
+        <li><a href="https://arxiv.org/abs/2207.00328" target="_blank" rel="noopener noreferrer">TopicFM: Robust and Interpretable Topic-Assisted Feature Matching</a> - AAAI 2023</li>
+        <li><a href="https://arxiv.org/abs/2402.08359" target="_blank" rel="noopener noreferrer">Learning to Produce Semi-Dense Correspondences for Visual Localization</a> - CVPR 2024</li>
+        <li><a href="https://doi.org/10.1109/TIP.2024.3473301" target="_blank" rel="noopener noreferrer">TopicFM+: Boosting Accuracy and Efficiency of Topic-Assisted Feature Matching</a> - IEEE Transactions on Image Processing, 2024</li>
       </ul>
       <figure class="research-figure">
-        <img src="figures/research/2-3.3DScanning.png" alt="3D Scanning results" />
+        <img src="figures/research/2-1.Visual SLAM.png" alt="Image-matching examples, camera-localization comparisons, and reconstructed scenes with camera trajectories" />
+        <figcaption>Examples of image correspondences, camera-localization comparisons, and reconstructed environments with estimated camera trajectories.</figcaption>
       </figure>
     </div>
 
-    <div class="topic-block">
-      <h3>3D Scene Graphs</h3>
+    <div class="topic-block" id="reconstruction">
+      <h2>Multi-View Stereo &amp; Neural Rendering</h2>
+      <p class="topic-status">Published research</p>
       <p class="desc">
-        We propose a feed-forward framework that combines LLM-generated spatial constraints with best-view
-        visual confidence to build verified 3D scene graphs consistent with the real environment — filtering
-        false-positive objects without costly iterative updates, and generating reliable subtask sequences
-        from verified objects only.
+        We reconstruct scene geometry from overlapping images and develop scene representations that support
+        novel-view rendering. Our work addresses both depth-estimation quality and the practical limits of
+        updating a model as new images arrive.
       </p>
-      <p class="desc">Spatial-constraint-based 3D scene graph and task-planning technology.</p>
+      <p class="desc">
+        Curvature-guided feature extraction adapts matching support to local surface structure, while
+        prior-depth-based multi-view stereo (MVS) reuses sequential depth estimates to improve online
+        reconstruction. For 3D Gaussian Splatting (3DGS), adaptive view selection adds informative non-keyframes
+        to refine incomplete regions. PR-IQA evaluates diffusion-generated views against reference observations
+        and uses quality estimates to filter unreliable supervision.
+      </p>
+      <ul class="desc-list">
+        <li><strong>Depth estimation:</strong> combine geometry-aware image features with depth information accumulated over time.</li>
+        <li><strong>Online Gaussian mapping:</strong> select useful observations to improve scene coverage under limited update time.</li>
+        <li><strong>Quality-aware synthesis:</strong> identify reliable regions in generated views before using them to train a 3D representation.</li>
+      </ul>
+      <h3 class="related-heading">Selected Publications</h3>
+      <ul class="related-pubs">
+        <li><a href="https://arxiv.org/abs/2112.05999" target="_blank" rel="noopener noreferrer">Curvature-Guided Dynamic Scale Networks for Multi-View Stereo</a> - ICLR 2022</li>
+        <li><a href="https://doi.org/10.1016/j.patcog.2022.109198" target="_blank" rel="noopener noreferrer">Prior Depth-Based Multi-View Stereo Network for Online 3D Model Reconstruction</a> - Pattern Recognition, 2023 (online first: 2022)</li>
+        <li><a href="https://www.ijcai.org/proceedings/2025/148" target="_blank" rel="noopener noreferrer">Online 3D Gaussian Splatting Modeling with Novel View Selection</a> - IJCAI 2025</li>
+        <li><a href="https://ieeexplore.ieee.org/document/11050405" target="_blank" rel="noopener noreferrer">MVS-GS: High-Quality 3D Gaussian Splatting Mapping via Online Multi-View Stereo</a> - IEEE Access, 2025</li>
+        <li><a href="https://www.mdpi.com/2079-9292/14/22/4436" target="_blank" rel="noopener noreferrer">Stereo-GS: Online 3D Gaussian Splatting Mapping Using Stereo Depth Estimation</a> - Electronics, 2025</li>
+        <li><a href="https://arxiv.org/abs/2604.04576" target="_blank" rel="noopener noreferrer">PR-IQA: Partial-Reference Image Quality Assessment for Diffusion-Based Novel View Synthesis</a> - CVPR 2026</li>
+      </ul>
       <figure class="research-figure">
-        <img src="figures/research/2-4.3DSceneGraphs.png" alt="3D Scene Graphs results" />
+        <img src="figures/research/2-2.MVS_Neural Rendering.png" alt="Depth-map comparisons, a historical MVS leaderboard, Gaussian scene renderings, and urban 3D reconstructions" />
+        <figcaption>Depth estimation, neural rendering, and large-scale reconstruction examples. The included leaderboard is a historical benchmark snapshot.</figcaption>
+      </figure>
+      <a href="projects.html" class="section-link">Related reconstruction projects</a>
+    </div>
+
+    <div class="topic-block" id="scanning">
+      <h2>Active 3D Scanning</h2>
+      <p class="topic-status">Published research; latest work accepted to IROS 2026</p>
+      <p class="desc">
+        A robot's viewpoint determines which surfaces can be reconstructed. We combine online 3D modeling
+        with view-path planning so an aerial robot can respond to missing or weakly reconstructed regions
+        during data collection.
+      </p>
+      <p class="desc">
+        Our methods analyze the evolving surface model, identify inspection targets, and plan observations
+        that improve coverage and geometric quality. Recent work combines an initial coverage pass with
+        targeted return re-scanning within a limited flight budget. The objective is to direct sensing effort
+        toward regions where additional observations are most useful.
+      </p>
+      <ul class="desc-list">
+        <li><strong>Surface-quality assessment:</strong> locate incomplete or uncertain surfaces as the model is reconstructed.</li>
+        <li><strong>Coverage and inspection:</strong> combine global coverage paths with local observations of difficult regions.</li>
+        <li><strong>Budget-aware re-scanning:</strong> choose return observations while accounting for the available flight budget.</li>
+      </ul>
+      <h3 class="related-heading">Selected Publications</h3>
+      <ul class="related-pubs">
+        <li><a href="https://ieeexplore.ieee.org/document/9197089" target="_blank" rel="noopener noreferrer">Active 3D Modeling via Online Multi-View Stereo</a> - ICRA 2020</li>
+        <li><a href="https://link.springer.com/article/10.1007/s10514-020-09936-7" target="_blank" rel="noopener noreferrer">Online Coverage and Inspection Planning for 3D Modeling</a> - Autonomous Robots, 2020</li>
+        <li><a href="https://doi.org/10.1109/TRO.2021.3083197" target="_blank" rel="noopener noreferrer">View Path Planning via Online Multiview Stereo for 3-D Modeling of Large-Scale Structures</a> - IEEE Transactions on Robotics, 2022 (online first: 2021)</li>
+        <li><a href="https://lsk1233.github.io/explore-then-exploit/" target="_blank" rel="noopener noreferrer">Online Explore-Then-Exploit UAV Scanning with Budgeted Return Re-Scanning</a> - IROS 2026, accepted</li>
+      </ul>
+      <figure class="research-figure">
+        <img src="figures/research/2-3.3DScanning.png" alt="Online reconstruction and inspection-planning pipeline with initial coverage and budgeted return re-scanning paths" />
+        <figcaption>Online reconstruction and inspection planning, alongside the initial coverage and targeted return paths in the work accepted to IROS 2026.</figcaption>
       </figure>
     </div>
 
-    <div class="topic-block">
-      <h3>Multi-Object Tracking</h3>
-      <p class="desc">On-going research.</p>
+    <div class="topic-block" id="scene-graphs">
+      <h2>3D Scene Graphs</h2>
+      <p class="topic-status">Ongoing research</p>
+      <p class="desc">
+        A geometric map describes shape, but robot tasks also require information about objects and their
+        relationships. We investigate 3D scene graphs that connect object instances, spatial relations, and
+        visual evidence in a form that can support language-guided planning.
+      </p>
+      <p class="desc">
+        Our current approach combines observations from selected views with contextual spatial constraints
+        to examine uncertain object candidates. We aim to reduce false detections and construct more compact
+        object representations, while keeping task plans grounded in evidence from the environment.
+      </p>
+      <ul class="desc-list">
+        <li><strong>Object-level mapping:</strong> represent object instances and their spatial relationships in 3D.</li>
+        <li><strong>Candidate verification:</strong> compare visual evidence with spatial context when observations are ambiguous.</li>
+        <li><strong>Task grounding:</strong> connect language-guided plans to the objects represented in the scene.</li>
+      </ul>
       <figure class="research-figure">
-        <img src="figures/research/2-5.Multi-ObjectTracking.png" alt="Multi-Object Tracking results" />
+        <img src="figures/research/2-4.3DSceneGraphs.png" alt="Illustration comparing dense object candidates with a compact scene graph and contextual object verification" />
+        <figcaption>Illustration of object-candidate filtering and contextual verification for a more compact 3D scene graph.</figcaption>
+      </figure>
+      <a href="physical-ai.html" class="section-link">Language-guided robot planning</a>
+    </div>
+
+    <div class="topic-block" id="tracking">
+      <h2>Multi-Object Tracking</h2>
+      <p class="topic-status">Ongoing research</p>
+      <p class="desc">
+        Robots operating around people need to distinguish moving objects and maintain their identities over
+        time. We investigate multi-object tracking in video sequences, focusing on the difficulty of associating
+        observations when objects overlap, disappear from view, or change appearance.
+      </p>
+      <p class="desc">
+        The goal is to provide temporally consistent information about dynamic scenes that can complement
+        localization and mapping. Our research examines how detection and association can preserve useful
+        object tracks in crowded environments and through intermittent observations.
+      </p>
+      <ul class="desc-list">
+        <li><strong>Association across frames:</strong> connect detections that correspond to the same object.</li>
+        <li><strong>Identity consistency:</strong> study how to retain tracks through occlusion and appearance changes.</li>
+        <li><strong>Dynamic-scene perception:</strong> explore how object tracks can complement a robot's spatial map.</li>
+      </ul>
+      <figure class="research-figure">
+        <img src="figures/research/2-5.Multi-ObjectTracking.png" alt="Video frames with pedestrian boxes and identity labels in outdoor, crowded, and performance scenes" />
+        <figcaption>Example tracking scenarios with object boxes and identity labels across successive video frames.</figcaption>
       </figure>
     </div>
 

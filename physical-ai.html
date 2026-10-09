@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="AiR Lab's Physical AI research connects robot world models, Vision-Language-Action models, and 3D spatial planning for heterogeneous robots." />
 <title>Physical AI — Research — AiR Lab</title>
 <link rel="icon" type="image/png" href="figures/logo/favicon.png" />
 <link rel="stylesheet" href="css/style.css" />
@@ -36,45 +37,57 @@
     <div class="research-detail-head" style="margin-top: var(--space-3);">
       <span class="big-num">01</span>
       <div>
-        <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin: 0 0 8px; letter-spacing:-0.02em;">Physical AI</h1>
+        <h1 class="research-title">Physical AI</h1>
         <p class="desc" style="margin:0;">
-          We build intelligence systems that let robots understand and predict how the physical world responds to
-          their actions, and act autonomously on that understanding — combining world models with
-          language-grounded planning.
+          We study how robots can connect visual observations and language instructions to actions in the
+          physical world. Our research brings together predictive world models, Vision-Language-Action models,
+          and spatially grounded planning to make robot behavior more adaptable to changing tasks and environments.
         </p>
       </div>
     </div>
-    <img class="topic-hero-img" src="figures/research/1.PhysicalAI.png" alt="Physical AI: robot arm and end-effector detection" />
+    <img class="topic-hero-img" src="figures/research/1.PhysicalAI.png" alt="Conceptual world-model and VLA pipeline alongside robot tasks in several indoor environments" />
   </div>
 </section>
 
-<section class="section">
+<section class="section research-article">
   <div class="container">
 
-    <div class="topic-block">
-      <h3>VLA &amp; Robot World Model</h3>
+    <nav class="topic-nav" aria-label="Research topics">
+      <a href="#world-models">VLA &amp; World Models</a>
+      <a href="#spatial-planning">3D Vision-Language-Planning</a>
+    </nav>
+
+    <div class="topic-block" id="world-models">
+      <h2>Vision-Language-Action &amp; Robot World Models</h2>
+      <p class="topic-status">Ongoing research</p>
+      <p class="desc">Robots need more than object recognition to perform a task: they must relate an instruction to the current scene and anticipate how their actions may change it. We investigate Vision-Language-Action (VLA) models alongside robot world models to connect perception, prediction, and action selection.</p>
       <ul class="desc-list">
-        <li><strong>World-model construction for physical prediction:</strong> learns from a robot's sensor data to build a neural world model that simulates, in real time, how objects' physical properties and interactions will evolve into future states.</li>
-        <li><strong>VLA-based autonomous action control:</strong> fuses natural-language commands with the world model's predicted context in an end-to-end controller that directly derives optimal robot actions in complex, dynamic environments.</li>
+        <li><strong>Visual and language grounding:</strong> Relate task instructions to objects, the robot, and its end effector using visual observations.</li>
+        <li><strong>Predictive scene modeling:</strong> Study how learned models can generate plausible future observations and represent changes associated with robot actions.</li>
+        <li><strong>Action selection and feedback:</strong> Explore how predictions can inform robot actions and how new observations can guide subsequent decisions.</li>
       </ul>
-      <p class="desc">Vision-Language-Action (VLA) and World-Model-based technology for autonomous physical-intelligence robot control.</p>
+      <p class="desc">The demonstration below illustrates object/end-effector detection and generated observations compared with reference views. Our continuing work focuses on connecting these representations to robot control and evaluating prediction quality and task execution.</p>
       <a class="watch-link" href="https://youtu.be/RD8qaXDuF6k" target="_blank" rel="noopener noreferrer">▶ Watch demo</a>
       <figure class="research-figure">
-        <img src="figures/research/slide02_1.png" alt="Robot arm and end-effector detection, and multi-view video generation from the world model" />
-        <figcaption>Object/end-effector detection and multi-view future-state generation from the world model.</figcaption>
+        <img src="figures/research/slide02_1.png" alt="Robot-arm and object detections beside reference and generated observations from three viewpoints" />
+        <figcaption>Robot and object detection, with reference and generated observations shown from multiple viewpoints.</figcaption>
       </figure>
     </div>
 
-    <div class="topic-block">
-      <h3>3D VLP (Vision-Language-Planning)</h3>
+    <div class="topic-block" id="spatial-planning">
+      <h2>3D Vision-Language-Planning</h2>
+      <p class="topic-status">Ongoing research project, 2026-2029</p>
+      <p class="desc">Moving an object between locations requires a robot team to understand where objects are, which robot can perform each step, and how those steps depend on one another. Our 3D Vision-Language-Planning (3D VLP) project investigates a shared spatial representation that supports this reasoning across heterogeneous robots.</p>
       <ul class="desc-list">
-        <li><strong>Semantic 3D space construction:</strong> fuses visual information from heterogeneous multi-robot teams to build a 3D-LLM map that perceives the environment in real time.</li>
-        <li><strong>Intelligent unified control:</strong> interprets natural-language commands within spatial context and automatically generates and controls optimized collaborative actions across heterogeneous multi-robot teams.</li>
+        <li><strong>Semantic 3D representation:</strong> Integrate visual information from multiple robots into a map that connects scene geometry with object and place semantics.</li>
+        <li><strong>Spatially grounded task planning:</strong> Interpret language instructions in the context of the map and decompose them into actions suited to different robot capabilities.</li>
+        <li><strong>Collaborative execution and validation:</strong> Investigate how plans can be coordinated, updated during execution, and evaluated through simulation and real-robot experiments.</li>
       </ul>
-      <p class="desc">3D Vision-Language-Planning (3D VLP) technology for natural-language-command-driven autonomous heterogeneous multi-robot operation.</p>
+      <p class="desc">This project connects our work in <a href="spatial-ai.html">Spatial AI</a> with language-guided robot planning. The roadmap below presents the intended development path from shared scene understanding to coordinated operation and simulation-to-real-world validation.</p>
+      <p class="desc"><a href="projects.html">Related project: 3D VLP for heterogeneous robot teams</a></p>
       <figure class="research-figure">
-        <img src="figures/research/1-2.3DVLP.png" alt="3D-VLP roadmap: real-time 3D-LLM map update, multi-robot embodied planning, and Sim-to-Real validation" />
-        <figcaption>3D-VLP roadmap — real-time 3D-LLM map update, multi-robot embodied planning, and Sim-to-Real validation.</figcaption>
+        <img src="figures/research/1-2.3DVLP.png" alt="Conceptual illustration of shared 3D maps, heterogeneous robot task planning, and validation in real environments" />
+        <figcaption>Conceptual research roadmap: shared semantic 3D maps, heterogeneous robot task planning, and simulation-to-real-world validation.</figcaption>
       </figure>
     </div>
 

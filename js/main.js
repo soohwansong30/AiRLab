@@ -3,8 +3,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelector(".nav-links");
 
   if (toggle && links) {
+    const closeMenu = () => {
+      links.classList.remove("open");
+      toggle.classList.remove("active");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    toggle.setAttribute("aria-expanded", "false");
+
     toggle.addEventListener("click", () => {
-      links.classList.toggle("open");
+      const isOpen = links.classList.toggle("open");
+      toggle.classList.toggle("active", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    links.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
     });
   }
 
